@@ -2,7 +2,8 @@ sudo apt install img2simg
 ver="v0.3.2"
 curl -L -o ./AmlImg https://github.com/rmoyulong/AmlImg/releases/download/$ver/AmlImg_${ver}_linux_amd64
 chmod +x ./AmlImg
-curl -L -o ./uboot.img https://github.com/rmoyulong/u-boot-onecloud/releases/download/Onecloud_Uboot_23.12.24_18.15.09/eMMC.burn.img
+curl -L -o ./uboot.img https://github.com/rmoyulong/u-boot-onecloud/releases/download/Onecloud_Uboot_23.12.24_22.17.50/eMMC.burn.img
+
 ./AmlImg unpack ./uboot.img burn/
 
 gunzip openwrt/bin/targets/*/*/*.gz
@@ -32,13 +33,13 @@ cd ..
 sudo sync
 sudo umount ${boot_img_mnt}
 sudo umount ${rootfs_img_mnt}
-sudo img2simg ${loop}p1 burn/boot.img
-sudo img2simg openwrt.img burn/rootfs.img
+sudo img2simg ${loop}p1 burn/boot.simg
+sudo img2simg openwrt.img burn/rootfs.simg
 sudo rm -rf *.img
 sudo losetup -d $loop
 cat <<EOF >>burn/commands.txt
-PARTITION:boot:sparse:boot.img
-PARTITION:rootfs:sparse:rootfs.img
+PARTITION:boot:sparse:boot.simg
+PARTITION:rootfs:sparse:rootfs.simg
 EOF
 prefix=$(ls openwrt/bin/targets/*/*/*.img | sed 's/\.img$//')
 burnimg=${prefix}.burn.img
