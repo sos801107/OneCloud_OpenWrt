@@ -32,13 +32,13 @@ cd ..
 sudo sync
 sudo umount ${boot_img_mnt}
 sudo umount ${rootfs_img_mnt}
-sudo img2simg ${loop}p1 burn/boot.simg
-sudo img2simg openwrt.img burn/rootfs.simg
+sudo img2simg ${loop}p1 burn/boot.img
+sudo img2simg openwrt.img burn/rootfs.img
 sudo rm -rf *.img
 sudo losetup -d $loop
 cat <<EOF >>burn/commands.txt
-PARTITION:boot:sparse:boot.simg
-PARTITION:rootfs:sparse:rootfs.simg
+PARTITION:boot:sparse:boot.img
+PARTITION:rootfs:sparse:rootfs.img
 EOF
 prefix=$(ls openwrt/bin/targets/*/*/*.img | sed 's/\.img$//')
 burnimg=${prefix}.burn.img
