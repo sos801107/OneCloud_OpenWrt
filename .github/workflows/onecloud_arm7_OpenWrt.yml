@@ -27,7 +27,7 @@ permissions: write-all
 env:
   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
   REPO_URL: https://github.com/immortalwrt/immortalwrt
-  REPO_BRANCH: master
+  REPO_BRANCH: openwrt-24.10
   CONFIG_FILE: .config
   DIY_P1_SH: op1.sh
   DIY_P2_SH: op2.sh
