@@ -126,8 +126,15 @@ jobs:
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          sudo -E apt-get -qq update
-          sudo -E apt-get -qq install $(curl -fsSL https://raw.githubusercontent.com/rmoyulong/OneCloud_OpenWrt/master/Ubuntu-2204.txt)
+          sudo -E apt-get -qq update --fix-missing
+          sudo -E apt-get -qq full-upgrade
+          
+          if [[ "${{ inputs.OWRT_BRANCH }}" == *"openwrt-24.10"* ]]; then
+            sudo -E apt-get -qq install -y $(curl -fsSL https://raw.githubusercontent.com/rmoyulong/AX6-Actions_Lede/master/Ubuntu-2410.txt)
+           else
+            sudo -E apt-get -y install $(cat $GITHUB_WORKSPACE/Ubuntu-2204.txt)           
+          fi
+          
           sudo -E apt-get -qq autoremove --purge
           sudo -E apt-get -qq clean
           sudo timedatectl set-timezone "$TZ"
@@ -160,29 +167,11 @@ jobs:
         working-directory: /workdir
         run: |
           # Set up compilation source code
-          if [[ "${{ inputs.OWRT_URL }}" == *"openwrt/openwrt"* ]]; then
-              REPO_URL="https://github.com/openwrt/openwrt"
-              REPO_BRANCH="main"
-          elif [[ "${{ inputs.OWRT_URL }}" == *"coolsnowwolf/lede"* ]]; then
-              REPO_URL="https://github.com/coolsnowwolf/lede"
-              REPO_BRANCH="master"
-          elif [[ "${{ inputs.OWRT_URL }}" == *"immortalwrt/immortalwrt"* ]]; then
-              REPO_URL="https://github.com/immortalwrt/immortalwrt"
-              REPO_BRANCH="master"
-          else
-              REPO_URL="${{ inputs.OWRT_URL }}"
-              REPO_BRANCH="${{ inputs.OWRT_BRANCH }}"
-          fi
-          
-          if [[ $CORE_LINUX == *"5.15"* ]] ; then
-              REPO_URL="${{ inputs.OWRT_URL }}"
-              REPO_BRANCH="${{ inputs.OWRT_BRANCH }}"
-          fi
-          
-          echo "REPO_BRANCH=$REPO_BRANCH" >> $GITHUB_ENV
+          REPO_URL="${{ inputs.OWRT_URL }}"
+          REPO_BRANCH="${{ inputs.OWRT_BRANCH }}"
           
           df -hT $PWD
-          git clone -q --single-branch --depth=1 --branch=${REPO_BRANCH} ${REPO_URL} openwrt          
+          git clone -q --single-branch --depth=1 --branch=${REPO_BRANCH} ${REPO_URL} openwrt
           ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
           
       - name: 检查脚本
