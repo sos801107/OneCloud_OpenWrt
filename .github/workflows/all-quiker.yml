@@ -6,8 +6,12 @@
 name: 一站式精简onecloud直刷包【三联编】
 
 on:
-  #对应的是 UTC 时间，需要转换，0 代表北京时间8点，每个月2日/15日12点编译一次
-  #关闭则手动编译
+  #自动编译：当Auto-Clean运行完成后
+  workflow_run:
+    workflows: ["Auto-Clean"]
+    types:
+      - completed
+  #手动编译
   workflow_dispatch:
 
 env:
