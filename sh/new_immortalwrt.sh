@@ -6,3 +6,6 @@ rm -rf package/libs/uclient
 
 sudo curl -L -o rmoyulong.tar.gz https://github.com/rmoyulong/AX6-Actions_Lede/releases/download/union_package/immortalwrt.tar.gz
 tar zxvfp rmoyulong.tar.gz
+
+
+echo 'src-git theme https://github.com/sbwml/luci-theme-argon' >> feeds.conf.default
