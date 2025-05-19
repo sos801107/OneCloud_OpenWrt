@@ -14,6 +14,12 @@ rm -rf feeds/luci/luci-app-aria2
 rm -rf  package/openwrt-passwall/shadowsocks-rust
 rm -rf  package/openwrt-passwall/hysteria
 ####################################################
+# istoreos-theme
+rm -rf feeds/luci/themes/luci-theme-argon
+cp -r feeds/theme/luci-theme-argon feeds/luci/themes/luci-theme-argon
+
+rm -rf feeds/luci/applications/luci-app-argon-config
+cp -r feeds/theme/luci-app-argon-config feeds/luci/applications/luci-app-argon-config
 #解决shadowsocks-libev编译错误
 rm -rf feeds/packages/net/shadowsocks-libev
 cp -rf ./package/shadowsocks-libev feeds/packages/net/
