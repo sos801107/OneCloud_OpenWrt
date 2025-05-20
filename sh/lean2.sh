@@ -48,10 +48,15 @@ echo 'iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 53'
 echo '[ -n "$(command -v ip6tables)" ] && ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 53' >> package/network/config/firewall/files/firewall.user
 echo '[ -n "$(command -v ip6tables)" ] && ip6tables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 53' >> package/network/config/firewall/files/firewall.user
 
-# Modify default banner
-echo 'Modify default banner...'
-build_date=$(date +"%Y-%m-%d %H:%M:%S")
-echo "      %D %C ${build_date}                   " >> package/base-files/files/etc/banner
-echo " ------------------------------------------------------------- " >> package/base-files/files/etc/banner
-echo " ------------------------------------------------------------- " >> package/base-files/files/etc/banner
-echo "                                                               " >> package/base-files/files/etc/banner
+mkdir -p files/etc/config
+wget -qO- https://raw.githubusercontent.com/sos801107/TL-XDR608X/refs/heads/main/etc/openclash > files/etc/config/openclash
+#wget -qO- https://raw.githubusercontent.com/liandu2024/clash/refs/heads/main/main_router/openclash > files/etc/config/openclash
+wget -qO- https://raw.githubusercontent.com/sos801107/TL-XDR608X/refs/heads/main/etc/mosdns > files/etc/config/mosdns
+wget -qO- https://raw.githubusercontent.com/sos801107/TL-XDR608X/refs/heads/main/etc/smartdns > files/etc/config/smartdns
+
+mkdir -p files/etc
+wget -qO- https://raw.githubusercontent.com/sos801107/TL-XDR608X/refs/heads/main/etc/opkg.conf > files/etc/opkg.conf
+mkdir -p files/etc/opkg
+wget -qO- https://raw.githubusercontent.com/sos801107/TL-XDR608X/refs/heads/main/etc/distfeeds.conf-co > files/etc/opkg/distfeeds.conf
+mkdir -p files/root
+wget -qO- https://raw.githubusercontent.com/sos801107/TL-XDR608X/refs/heads/main/etc/.profile > files/root/.profile
