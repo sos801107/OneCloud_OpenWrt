@@ -22,3 +22,7 @@ cp -rf ./package/shadowsocks-libev feeds/packages/net/
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 #####################################################
+# 必要的补丁
+pushd feeds/luci
+   curl -s https://raw.githubusercontent.com/oppen321/path/refs/heads/main/Firewall/0001-luci-mod-status-firewall-disable-legacy-firewall-rul.patch | patch -p1
+popd
