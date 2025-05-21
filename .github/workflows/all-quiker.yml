@@ -202,38 +202,7 @@ jobs:
     - name: 自定义IMAGS格式 - meson8b cortex-a5+vfpv4
       working-directory: ./openwrt
       run: | 
-          #dos2unix $GITHUB_WORKSPACE/$OWRT_FILES/etc/*.sh
-          dos2unix $GITHUB_WORKSPACE/$OWRT_FILES/etc/rc.*
-          #chmod -Rf 755 $GITHUB_WORKSPACE/$OWRT_FILES/etc/*.sh
-          chmod -Rf 755 $GITHUB_WORKSPACE/$OWRT_FILES/etc/rc.*
-          chmod -Rf 755 $GITHUB_WORKSPACE/$OWRT_FILES/etc/init.d/*
-          
 
-          
-          rm -rf ./tmp* ./.config*
-          [ -e $GITHUB_WORKSPACE/${{ env.OWRT_CFG }}  ] && mv $GITHUB_WORKSPACE/${{ env.OWRT_CFG }}  .config
-          
-          #如果files文件夹不存在，创建文件夹
-          if [ ! -d "./files" ]; then
-            mkdir ./files
-          fi          
-          cp -rf $GITHUB_WORKSPACE/$OWRT_FILES/* ./files
-          
-          ls -l files
-          if [ ! -f files/etc/rc.local ]; then
-            echo "rc.local文件不存在！"
-          else
-            cat files/etc/rc.local
-          fi 
-          
-          #web控制台去掉443监听补丁
-          if [[ "${{ inputs.OWRT_TYPE }}" == *"OneCloud-docker"* ]]; then
-            cp -rf $GITHUB_WORKSPACE/ax6/uhttpd ./files/etc/config
-          else
-            #去掉多余的dhcp文件，让首次启动有dhcp服务
-            rm -rf ./files/etc/config/dhcp
-          fi
-          
           #openclash 32
           $GITHUB_WORKSPACE/sh/openclash32.sh
         
