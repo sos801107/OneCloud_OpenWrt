@@ -16,8 +16,9 @@ rm -rf  package/openwrt-passwall/hysteria
 ####################################################
 # istoreos-theme
 rm -rf feeds/luci/themes/luci-theme-argon
+rm -rf feeds/third/luci-theme-argon
 cp -r feeds/theme/luci-theme-argon feeds/luci/themes/luci-theme-argon
-
+rm -rf feeds/third/luci-app-argon-config
 rm -rf feeds/luci/applications/luci-app-argon-config
 cp -r feeds/theme/luci-app-argon-config feeds/luci/applications/luci-app-argon-config
 #解决shadowsocks-libev编译错误
