@@ -16,8 +16,10 @@ on:
 
 env:
   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-  REPO_URL: https://github.com/immortalwrt/immortalwrt
-  REPO_BRANCH: openwrt-24.10
+  REPO_URL: https://github.com/istoreos/istoreos
+  REPO_BRANCH: istoreos-24.10
+  ##REPO_URL: https://github.com/immortalwrt/immortalwrt
+  #REPO_BRANCH: openwrt-24.10  
   FEEDS_CONF: feeds.conf.default
   #DIY_P1_SH: sh/quick.sh
   DIY_P1_SH: sh/new_immortalwrt.sh
