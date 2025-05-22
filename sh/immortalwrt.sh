@@ -21,6 +21,13 @@ rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/luci/applications/luci-app-passwall2
 rm -rf feeds/luci/applications/luci-app-turboacc
 #rm -rf feeds/packages/net/shadowsocks-libev
+# istoreos-theme
+rm -rf feeds/luci/themes/luci-theme-argon
+rm -rf feeds/third/luci-theme-argon
+cp -r feeds/theme/luci-theme-argon feeds/luci/themes/luci-theme-argon
+rm -rf feeds/third/luci-app-argon-config
+rm -rf feeds/luci/applications/luci-app-argon-config
+cp -r feeds/theme/luci-app-argon-config feeds/luci/applications/luci-app-argon-config
 
 # Git稀疏克隆，只克隆指定目录到本地
 function git_sparse_clone() {
@@ -64,7 +71,7 @@ echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >> feeds.conf.d
 git clone --depth=1 https://github.com/immortalwrt/homeproxy package/homeproxy
 #git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-homeproxy
 ######################################################################################
-git clone --depth=1 -b main https://github.com/fw876/helloworld package/luci-app-ssr-plus
+#git clone --depth=1 -b main https://github.com/fw876/helloworld package/luci-app-ssr-plus
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2 package/luci-app-passwall2
