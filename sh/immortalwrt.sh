@@ -93,6 +93,8 @@ git_sparse_clone main https://github.com/kiddin9/kwrt-packages shadowsocks-rust
 #git_sparse_clone main https://github.com/kenzok8/small-package luci-app-kodexplorer
 #git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-usb-printer
 #git_sparse_clone main https://github.com/kiddin9/kwrt-packages shadowsocksr-libev
+git_sparse_clone openwrt-24.10 https://github.com/sbwml/luci-theme-argon luci-theme-argon
+git_sparse_clone openwrt-24.10 https://github.com/sbwml/luci-theme-argon luci-app-argon-config
 
 git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff package/luci-app-poweroff
 git clone --depth=1 https://github.com/Jason6111/luci-app-netdata package/luci-app-netdata
