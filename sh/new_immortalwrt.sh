@@ -8,8 +8,8 @@ sudo curl -L -o rmoyulong.tar.gz https://github.com/rmoyulong/AX6-Actions_Lede/r
 tar zxvfp rmoyulong.tar.gz
 
 
-#echo 'src-git turboacc https://github.com/chenmozhijin/turboacc.git;luci' >> feeds.conf.default
-#echo 'src-git turboaccpackage https://github.com/chenmozhijin/turboacc.git;package' >> feeds.conf.default
+echo 'src-git turboacc https://github.com/chenmozhijin/turboacc.git;luci' >> feeds.conf.default
+echo 'src-git turboaccpackage https://github.com/chenmozhijin/turboacc.git;package' >> feeds.conf.default
 #echo 'src-git nftables https://github.com/fullcone-nat-nftables/nft-fullcone' >> feeds.conf.default
 
 echo 'src-git appvlmcsd https://github.com/AutoCONFIG/luci-app-vlmcsd;master' >> feeds.conf.default
