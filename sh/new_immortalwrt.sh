@@ -20,3 +20,9 @@ echo 'src-git small https://github.com/kenzok8/small;master' >> feeds.conf.defau
 echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages;master' >> feeds.conf.default
 
 
+rm -rf feeds/luci/themes/luci-theme-argon
+rm -rf feeds/third/luci-theme-argon
+cp -r feeds/theme/luci-theme-argon feeds/luci/themes/luci-theme-argon
+rm -rf feeds/third/luci-app-argon-config
+rm -rf feeds/luci/applications/luci-app-argon-config
+cp -r feeds/theme/luci-app-argon-config feeds/luci/applications/luci-app-argon-config
