@@ -60,3 +60,12 @@ wget -qO- https://raw.githubusercontent.com/sos801107/TL-XDR608X/refs/heads/main
 ##wget -qO- https://raw.githubusercontent.com/sos801107/TL-XDR608X/refs/heads/main/etc/distfeeds.conf-co > files/etc/opkg/distfeeds.conf
 mkdir -p files/root
 wget -qO- https://raw.githubusercontent.com/sos801107/TL-XDR608X/refs/heads/main/etc/.profile > files/root/.profile
+
+
+rm -rf feeds/luci/themes/luci-theme-argon
+rm -rf feeds/third/luci-theme-argon
+cp -r feeds/theme/luci-theme-argon feeds/luci/themes/luci-theme-argon
+rm -rf feeds/third/luci-app-argon-config
+rm -rf feeds/luci/applications/luci-app-argon-config
+cp -r feeds/theme/luci-app-argon-config feeds/luci/applications/luci-app-argon-config
+
