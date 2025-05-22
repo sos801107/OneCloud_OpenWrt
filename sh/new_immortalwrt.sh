@@ -16,7 +16,7 @@ echo 'src-git appvlmcsd https://github.com/AutoCONFIG/luci-app-vlmcsd;master' >>
 
 #echo 'src-git theme https://github.com/zijieKwok/istoreos-theme' >> feeds.conf.default
 echo 'src-git theme https://github.com/sbwml/luci-theme-argon;openwrt-24.10' >> feeds.conf.default
-echo 'src-git small https://github.com/kenzok8/small' >> feeds.conf.default
-echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >> feeds.conf.default
+echo 'src-git small https://github.com/kenzok8/small;master' >> feeds.conf.default
+echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages;master' >> feeds.conf.default
 
 
