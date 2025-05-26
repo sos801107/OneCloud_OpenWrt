@@ -60,6 +60,31 @@ wget -qO- https://raw.githubusercontent.com/sos801107/TL-XDR608X/refs/heads/main
 mkdir -p files/root
 wget -qO- https://raw.githubusercontent.com/sos801107/TL-XDR608X/refs/heads/main/etc/.profile > files/root/.profile
 
+# 将packages源的相关文件替换成passwall_packages源的
+rm -rf feeds/packages/net/xray-core
+rm -rf feeds/packages/net/mosdns
+rm -rf feeds/packages/net/v2ray-geodata
+rm -rf feeds/packages/net/v2ray-geoip
+rm -rf feeds/packages/net/sing-box
+rm -rf feeds/packages/net/chinadns-ng
+rm -rf feeds/packages/net/dns2socks
+rm -rf feeds/packages/net/dns2tcp
+rm -rf feeds/packages/net/microsocks
+cp -r feeds/small/xray-core feeds/packages/net
+cp -r feeds/small/mosdns feeds/packages/net
+cp -r feeds/small/v2ray-geodata feeds/packages/net
+cp -r feeds/small/v2ray-geoip feeds/packages/net
+cp -r feeds/small/sing-box feeds/packages/net
+cp -r feeds/small/chinadns-ng feeds/packages/net
+cp -r feeds/small/dns2socks feeds/packages/net
+cp -r feeds/small/dns2tcp feeds/packages/net
+cp -r feeds/small/microsocks feeds/packages/net
+
+#rm -rf package/feeds/packages/gnutls
+
+##更新FQ
+rm -rf feeds/luci/applications/{luci-app-passwall,luci-app-openclash}
+cp -r feeds/small/luci-app-passwall feeds/luci/applications/luci-app-passwall
 
 # istoreos-theme
 rm -rf feeds/luci/themes/luci-theme-argon
