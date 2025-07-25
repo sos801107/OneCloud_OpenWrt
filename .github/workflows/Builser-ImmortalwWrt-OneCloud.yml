@@ -131,7 +131,7 @@ jobs:
         
     - name: 制作直刷包
       run: |
-            #$GITHUB_WORKSPACE/diy/convert.sh
+            $GITHUB_WORKSPACE/diy/convert.sh
           
     - name: 检查空间使用情况
       if: (!cancelled())
