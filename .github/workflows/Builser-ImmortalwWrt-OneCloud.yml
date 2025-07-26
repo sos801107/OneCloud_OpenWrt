@@ -12,8 +12,8 @@ on:
 
 
 env:
-  REPO_URL: https://github.com/immortalwrt/immortalwrt.git
-  REPO_BRANCH: openwrt-24.10
+  REPO_URL: https://github.com/istoreos/istoreos
+  REPO_BRANCH: istoreos-24.10
   CONFIG_FILE: configs/onecloud-immortalwrt.config
   DIY_SCRIPT: diy/diy-immortalwrt-OneCloud.sh
   CLASH_KERNEL: amd64
