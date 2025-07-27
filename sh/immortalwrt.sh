@@ -97,7 +97,7 @@ rm -rf feeds/packages/net/chinadns-ng
 rm -rf feeds/packages/net/dns2socks
 rm -rf feeds/packages/net/dns2tcp
 rm -rf feeds/packages/net/microsocks
-rm -rf feeds/small/xray-core
+cp -r feeds/small/xray-core feeds/packages/net
 cp -r feeds/small/mosdns feeds/packages/net
 cp -r feeds/small/v2ray-geodata feeds/packages/net
 cp -r feeds/small/v2ray-geoip feeds/packages/net
@@ -161,8 +161,8 @@ function merge_package() {
 
 git_sparse_clone openwrt-24.10 https://github.com/sbwml/luci-theme-argon luci-theme-argon
 git_sparse_clone openwrt-24.10 https://github.com/sbwml/luci-theme-argon luci-app-argon-config
-#git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-passwall
-#git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-turboacc
+git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-passwall
+git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-turboacc
 
 #git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-mosdns
 #git_sparse_clone main https://github.com/kiddin9/kwrt-packages mosdns
@@ -190,5 +190,5 @@ popd
 #popd
 
 
-./scripts/feeds update -a
-./scripts/feeds install -a
+#./scripts/feeds update -a
+#./scripts/feeds install -a
