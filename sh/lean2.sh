@@ -60,6 +60,8 @@ wget -qO- https://raw.githubusercontent.com/sos801107/TL-XDR608X/refs/heads/main
 mkdir -p files/root
 wget -qO- https://raw.githubusercontent.com/sos801107/TL-XDR608X/refs/heads/main/etc/.profile > files/root/.profile
 
+git clone https://github.com/sos801107/istoreos-files -b main feeds/packages/istoreos-files
+
 # 将packages源的相关文件替换成passwall_packages源的
 rm -rf feeds/packages/net/xray-core
 rm -rf feeds/packages/net/mosdns
