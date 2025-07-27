@@ -142,7 +142,7 @@ jobs:
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-        
+        echo $(date +"%Y%m%d%H") > version
     - name: 检查脚本
       run: |
         cd ./sh
