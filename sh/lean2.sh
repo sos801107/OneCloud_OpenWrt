@@ -60,7 +60,6 @@ wget -qO- https://raw.githubusercontent.com/sos801107/TL-XDR608X/refs/heads/main
 mkdir -p files/root
 wget -qO- https://raw.githubusercontent.com/sos801107/TL-XDR608X/refs/heads/main/etc/.profile > files/root/.profile
 
-git clone https://github.com/sos801107/istoreos-files -b main feeds/packages/istoreos-files
 
 # 将packages源的相关文件替换成passwall_packages源的
 rm -rf feeds/packages/net/xray-core
@@ -134,20 +133,22 @@ function merge_package() {
 
 git_sparse_clone openwrt-24.10 https://github.com/sbwml/luci-theme-argon luci-theme-argon
 git_sparse_clone openwrt-24.10 https://github.com/sbwml/luci-theme-argon luci-app-argon-config
-#git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
-#git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall
+git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall package/luci-app-passwall
 git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-dockerman
-git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-tailscale
-git_sparse_clone main https://github.com/kiddin9/kwrt-packages tailscale
+#git_sparse_clone main https://github.com/kiddin9/kwrt-packages luci-app-tailscale
+#git_sparse_clone main https://github.com/kiddin9/kwrt-packages tailscale
+
+git clone https://github.com/sos801107/istoreos-files -b main feeds/packages/istoreos-files
 
 # 必要的补丁
 pushd feeds/luci
    curl -s https://raw.githubusercontent.com/oppen321/path/refs/heads/main/Firewall/0001-luci-mod-status-firewall-disable-legacy-firewall-rul.patch | patch -p1
 popd
 
-#pushd
-#   curl -sSL https://raw.githubusercontent.com/Jaykwok2999/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
-##popd
+pushd
+   curl -sSL https://raw.githubusercontent.com/Jaykwok2999/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
+popd
 
-#./scripts/feeds update -a
-#./scripts/feeds install -a
+./scripts/feeds update -a
+./scripts/feeds install -a
