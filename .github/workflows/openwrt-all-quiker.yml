@@ -3,7 +3,7 @@
 # Description: Use Releases file to packaging
 # Cron: min (0 - 59) / hour (0 - 23) / day of month (1 - 31) / month (1 - 12) / day of week (0 - 6)(Sunday - Saturday)
 #========================================================================================================================
-name: 一站式精简onecloud直刷包【istoreos】
+name: 一站式精简onecloud直刷包【openwrt】
 
 on:
   #自动编译：当Auto-Clean运行完成后
@@ -16,8 +16,8 @@ on:
 
 env:
   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-  REPO_URL: https://github.com/istoreos/istoreos
-  REPO_BRANCH: istoreos-24.10.0
+  REPO_URL: https://github.com/openwrt/openwrt
+  REPO_BRANCH: openwrt-24.10
   ##REPO_URL: https://github.com/immortalwrt/immortalwrt
   ##REPO_BRANCH: openwrt-24.10  
   FEEDS_CONF: feeds.conf.default
