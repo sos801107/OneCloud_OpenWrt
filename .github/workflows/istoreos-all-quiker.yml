@@ -3,7 +3,7 @@
 # Description: Use Releases file to packaging
 # Cron: min (0 - 59) / hour (0 - 23) / day of month (1 - 31) / month (1 - 12) / day of week (0 - 6)(Sunday - Saturday)
 #========================================================================================================================
-name: 一站式精简onecloud直刷包【istoreos】
+name: 一站式精简onecloud直刷包【immortalwrt】
 
 on:
   #自动编译：当Auto-Clean运行完成后
@@ -19,11 +19,11 @@ env:
   REPO_URL: https://github.com/istoreos/istoreos
   REPO_BRANCH: istoreos-24.10
   ##REPO_URL: https://github.com/immortalwrt/immortalwrt
-  #REPO_BRANCH: openwrt-24.10  
+  ##REPO_BRANCH: openwrt-24.10  
   FEEDS_CONF: feeds.conf.default
   #DIY_P1_SH: sh/quick.sh
-  DIY_P1_SH: sh/istoreos.sh
-  DIY_P2_SH: sh/lean2.sh
+  DIY_P1_SH: sh/new_immortalwrt.sh
+  DIY_P2_SH: sh/immortalwrt.sh
   DIY_P3_SH: sh/remove.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
@@ -142,7 +142,6 @@ jobs:
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-        
     - name: 检查脚本
       run: |
         cd ./sh
@@ -187,7 +186,8 @@ jobs:
     - name: 安装订阅源
       run: |
         cd openwrt
-        
+        echo $(date +"%Y%m%d%H") > version
+      
         ./scripts/feeds update -a
         ./scripts/feeds install -a       
         
