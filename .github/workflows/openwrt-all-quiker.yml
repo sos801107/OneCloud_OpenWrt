@@ -16,8 +16,8 @@ on:
 
 env:
   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-  REPO_URL: https://github.com/openwrt/openwrt
-  REPO_BRANCH: openwrt-24.10
+  REPO_URL: https://github.com/istoreos/istoreos.git
+  REPO_BRANCH: istoreos-24.10
   ##REPO_URL: https://github.com/immortalwrt/immortalwrt
   ##REPO_BRANCH: openwrt-24.10  
   FEEDS_CONF: feeds.conf.default
@@ -300,4 +300,5 @@ jobs:
       with:
         retain_days: 0
         keep_minimum_runs: 1
+
 
