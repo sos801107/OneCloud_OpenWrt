@@ -16,8 +16,8 @@ rm -rf  package/openwrt-passwall/shadowsocks-rust
 rm -rf  package/openwrt-passwall/hysteria
 ####################################################
 #解决shadowsocks-libev编译错误
-rm -rf feeds/packages/net/shadowsocks-libev
-cp -rf ./package/shadowsocks-libev feeds/packages/net/
+##rm -rf feeds/packages/net/shadowsocks-libev
+##cp -rf ./package/shadowsocks-libev feeds/packages/net/
 #####################################################
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
@@ -26,3 +26,4 @@ git clone https://github.com/sbwml/packages_lang_golang feeds/packages/lang/gola
 pushd feeds/luci
    curl -s https://raw.githubusercontent.com/oppen321/path/refs/heads/main/Firewall/0001-luci-mod-status-firewall-disable-legacy-firewall-rul.patch | patch -p1
 popd
+
